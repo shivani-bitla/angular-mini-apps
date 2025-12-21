@@ -1,0 +1,20 @@
+<div class="container">
+  <h2>Image to PDF Converter 📄</h2>
+  
+  <input type="file" (change)="onFileSelected($event)" accept="image/*"  placeholder="select a file" />
+  @if(selectedImage){
+
+    <div class="file-name-input">
+      <input 
+      type="text" 
+      (value)="customFileName = $event.target.value"
+      placeholder="Enter file name (optional)" 
+      />
+      <span>.pdf</span>
+    </div>
+  }
+  <p>{{selectedImage ? 'Image loaded successfully!' : 'No image selected' }}  </p>
+  <button (click)="convertToPdf()" [disabled]="!selectedImage">
+    Convert to PDF 🚀
+  </button>
+</div>
